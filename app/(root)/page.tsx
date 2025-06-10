@@ -84,7 +84,10 @@ export default function Home() {
       <section className="container mx-auto py-12 lg:py-20">
         <div className="grid md:grid-cols-3 gap-12 md:gap-24">
           {features.map(({ title, description, icon: Icon }) => (
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card
+              key={title}
+              className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
               <CardContent className="p-8 text-center space-y-4">
                 <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto">
                   <Icon className="text-white w-8 h-8" />
