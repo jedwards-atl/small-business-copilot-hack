@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 1. Create git repository
 2. Initialize nextJS project - while in the project directory run: `npx create-next-app@latest ./`
-3.
+3. Initialize [ShadCN](https://ui.shadcn.com/) - `NODE_TLS_REJECT_UNAUTHORIZED=0 npx shadcn@latest init`
