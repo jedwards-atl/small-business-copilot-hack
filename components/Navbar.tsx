@@ -17,7 +17,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-between mx-auto w-full px-14 py-4 max-sm:px-4">
+    <nav className="container flex items-center justify-between mx-auto w-full py-4 max-sm:px-4">
       <div className="flex items-center cursor-pointer">
         <Link href="/">
           <Image src="/globe.svg" alt="Logo" width={40} height={40} />
