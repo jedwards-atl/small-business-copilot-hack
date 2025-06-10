@@ -25,7 +25,7 @@ const features = [
 
 export default function Home() {
   return (
-    <div className="h-full w-full px-14 py-4 max-sm:px-4 bg-white">
+    <div className="lg:h-screen w-full max-sm:overflow-x-hidden max-sm:px-4 bg-white">
       {/* Hero */}
       <section className="container mx-auto py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -49,8 +49,8 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-purple-400 rounded-full blur-3xl opacity-30 scale-150"></div>
+          <div className="relative max-sm:px-4">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-purple-400 rounded-full blur-3xl opacity-30 scale-150 overflow-x-hidden"></div>
             <div className="relative bg-gray-800 rounded-lg p-8 shadow-2xl">
               <div className="bg-white rounded-lg p-6 mb-4">
                 <div className="flex items-center space-x-3 mb-4">
@@ -81,8 +81,8 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto py-16">
-        <div className="grid md:grid-cols-3 gap-24">
+      <section className="container mx-auto py-12 lg:py-20">
+        <div className="grid md:grid-cols-3 gap-12 md:gap-24">
           {features.map(({ title, description, icon: Icon }) => (
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardContent className="p-8 text-center space-y-4">
