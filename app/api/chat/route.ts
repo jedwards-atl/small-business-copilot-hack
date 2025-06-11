@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       transport: apple_transport,
     });
 
-    // Apple
+    // Shopify
     const shopify_transport = new Experimental_StdioMCPTransport({
       command: "npx",
       args: [
@@ -48,12 +48,27 @@ export async function POST(request: Request) {
       transport: shopify_transport,
     });
 
+    // Xero
+    const xero_transport = new Experimental_StdioMCPTransport({
+      command: "npx",
+      args: ["-y", "@xeroapi/xero-mcp-server@latest"],
+      env: {
+        XERO_CLIENT_ID: process.env.XERO_CLIENT_ID as string,
+        XERO_CLIENT_SECRET: process.env.XERO_CLIENT_SECRET as string,
+      },
+    });
+    const xero_clientOne = await experimental_createMCPClient({
+      transport: xero_transport,
+    });
+
     const apple_toolSetOne = await apple_clientOne.tools();
     const shopify_toolSetOne = await shopify_clientOne.tools();
+    const xero_toolSetOne = await xero_clientOne.tools();
 
     const tools = {
       ...apple_toolSetOne,
       ...shopify_toolSetOne,
+      ...xero_toolSetOne,
     };
 
     if (!messages) {
@@ -70,7 +85,7 @@ export async function POST(request: Request) {
         "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple and Shopify, use them when necessary. You need to format your response in an easy to read way with paragraphs, headings, lists, etc. Please format the response with markdown.",
       tools: tools,
       messages: messages,
-      maxSteps: 5,
+      maxSteps: 15,
     });
 
     return response.toDataStreamResponse();
