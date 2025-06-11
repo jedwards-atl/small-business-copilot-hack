@@ -67,7 +67,7 @@ export async function POST(request: Request) {
       model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
       system:
         "You are an assistant designed to help small business owners run their business in the United States. Their business is called Peacock Productions run by Ashley Peacock and they sell clothing online. Include this information in the responses to make them more personalised where appropriate." +
-        "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple and Shopify. You need to format your response in an easy to read way with paragraphs, headings, lists, etc. Please format the response with markdown. KEEP THE ANSWERS SHORT AND TO THE POINT - YOU DO NOT NEED TO USE ALL THE INFORMATION RETURNED FROM THE TOOLS.",
+        "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple and Shopify, use them when necessary. You need to format your response in an easy to read way with paragraphs, headings, lists, etc. Please format the response with markdown.",
       tools: tools,
       messages: messages,
       maxSteps: 5,

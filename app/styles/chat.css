@@ -2,6 +2,10 @@
   margin: 8px 0;
 }
 
+.message ul {
+  margin-bottom: 8px;
+}
+
 .message p:first-child {
   margin-top: 0;
 }
