@@ -7,7 +7,7 @@ import pdf from 'pdf-parse';
  * Reads and parses a PDF file to extract its content and metadata.
  */
 async function readPdf() {
-    const pdfPath = '/Users/nagore.valero/Documents/Projects/small-business-copilot-hack/docs/policy.pdf';
+    const pdfPath = './docs/policy.pdf';
     try {
         // Check if the file exists
         if (!fs.existsSync(pdfPath)) {
