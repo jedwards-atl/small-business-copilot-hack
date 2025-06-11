@@ -46,7 +46,7 @@ const chatHistory = [
   "Cash flow analysis",
   "Streamlining daily workflow",
   "Insurance recommendations",
-];
+]; // TODO: does this need to be dynamic? Do we have access to chat histories via the API?
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -62,7 +62,7 @@ const Sidebar = () => {
           width={40}
           height={40}
         />
-        <h3 className="text-sm font-medium text-purple-600 tracking-wide">
+        <h3 className="text-sm font-medium text-gray-900 tracking-wide">
           Ash & Co. AI Assistant
         </h3>
       </div>
@@ -91,10 +91,10 @@ const Sidebar = () => {
         {/* Projects */}
         <div className="">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-medium text-purple-600 uppercase tracking-wide">
+            <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide">
               PROJECTS
             </h3>
-            <Plus className="w-4 h-4 text-purple-600 cursor-pointer" />
+            <Plus className="w-4 h-4 text-purple-800 cursor-pointer" />
           </div>
           <div className="flex flex-col space-y-3">
             {projects.map(({ title, icon: Icon, href }) => (
@@ -128,10 +128,13 @@ const Sidebar = () => {
         </div>
 
         {/* Connected Apps */}
-        <div className="flex-1">
-          <h3 className="text-sm font-medium text-purple-600 uppercase tracking-wide mb-3">
-            APPS ADDED
-          </h3>
+        <div className="">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide">
+              PROJECTS
+            </h3>
+            <Plus className="w-4 h-4 text-purple-800 cursor-pointer" />
+          </div>
           <div className="space-y-1">
             {connectedApps.map(({ icon: Icon, title }) => (
               <div
@@ -148,7 +151,7 @@ const Sidebar = () => {
 
         {/* Chat History */}
         <div className="flex-1">
-          <h3 className="text-sm font-medium text-purple-600 uppercase tracking-wide mb-3">
+          <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide mb-3">
             CHAT HISTORY
           </h3>
           <div className="space-y-1">
