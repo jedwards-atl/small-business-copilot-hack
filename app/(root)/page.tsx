@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Heart, TrendingUp, Users } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -38,15 +39,17 @@ export default function Home() {
                 Get Tailored Insights, No Prompts Needed
               </p>
             </div>
-            <Button
-              size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl"
-            >
-              <div className="flex flex-row  gap-2 items-center justify-center">
-                Get Started
-                <ArrowRight />
-              </div>
-            </Button>
+            <Link href="/app">
+              <Button
+                size="lg"
+                className="bg-purple-600 hover:bg-purple-700 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl cursor-pointer"
+              >
+                <div className="flex flex-row  gap-2 items-center justify-center">
+                  Get Started
+                  <ArrowRight />
+                </div>
+              </Button>
+            </Link>
           </div>
 
           <div className="relative max-sm:px-4">
