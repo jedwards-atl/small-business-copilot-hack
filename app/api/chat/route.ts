@@ -21,50 +21,52 @@ const bedrock = createAmazonBedrock({
   }),
 });
 
+// Apple
+const apple_transport = new Experimental_StdioMCPTransport({
+  command: "bunx",
+  args: ["@dhravya/apple-mcp@latest"],
+});
+const apple_clientOne = await experimental_createMCPClient({
+  transport: apple_transport,
+});
+
+// Shopify
+const shopify_transport = new Experimental_StdioMCPTransport({
+  command: "npx",
+  args: [
+    "shopify-mcp",
+    "--accessToken",
+    process.env.SHOPIFY_ACCESS_TOKEN as string,
+    "--domain",
+    "0pi94v-h9.myshopify.com",
+  ],
+});
+const shopify_clientOne = await experimental_createMCPClient({
+  transport: shopify_transport,
+});
+
+// Xero
+const xero_transport = new Experimental_StdioMCPTransport({
+  command: "npx",
+  args: ["-y", "@xeroapi/xero-mcp-server@latest"],
+  env: {
+    XERO_CLIENT_ID: process.env.XERO_CLIENT_ID as string,
+    XERO_CLIENT_SECRET: process.env.XERO_CLIENT_SECRET as string,
+  },
+});
+const xero_clientOne = await experimental_createMCPClient({
+  transport: xero_transport,
+});
+
+const apple_toolSetOne = await apple_clientOne.tools();
+const shopify_toolSetOne = await shopify_clientOne.tools();
+const xero_toolSetOne = await xero_clientOne.tools();
+
 export async function POST(request: Request) {
   try {
     const { messages } = await request.json();
 
-    // Apple
-    const apple_transport = new Experimental_StdioMCPTransport({
-      command: "bunx",
-      args: ["@dhravya/apple-mcp@latest"],
-    });
-    const apple_clientOne = await experimental_createMCPClient({
-      transport: apple_transport,
-    });
-
-    // Shopify
-    const shopify_transport = new Experimental_StdioMCPTransport({
-      command: "npx",
-      args: [
-        "shopify-mcp",
-        "--accessToken",
-        process.env.SHOPIFY_ACCESS_TOKEN as string,
-        "--domain",
-        "0pi94v-h9.myshopify.com",
-      ],
-    });
-    const shopify_clientOne = await experimental_createMCPClient({
-      transport: shopify_transport,
-    });
-
-    // Xero
-    const xero_transport = new Experimental_StdioMCPTransport({
-      command: "npx",
-      args: ["-y", "@xeroapi/xero-mcp-server@latest"],
-      env: {
-        XERO_CLIENT_ID: process.env.XERO_CLIENT_ID as string,
-        XERO_CLIENT_SECRET: process.env.XERO_CLIENT_SECRET as string,
-      },
-    });
-    const xero_clientOne = await experimental_createMCPClient({
-      transport: xero_transport,
-    });
-
-    const apple_toolSetOne = await apple_clientOne.tools();
-    const shopify_toolSetOne = await shopify_clientOne.tools();
-    const xero_toolSetOne = await xero_clientOne.tools();
+    
 
     const tools = {
       ...apple_toolSetOne,
