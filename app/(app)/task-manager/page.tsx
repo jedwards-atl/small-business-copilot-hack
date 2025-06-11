@@ -2,10 +2,9 @@ import ContributingMembers from "@/components/task-manager-card-content/Contribu
 import RankedByImpact from "@/components/task-manager-card-content/RankedByImpact";
 import TaskNotifications from "@/components/task-manager-card-content/TaskNotifications";
 import Upcoming from "@/components/task-manager-card-content/Upcoming";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bell, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 import React from "react";
 
 const tiles = [

@@ -1,4 +1,3 @@
-import Upcoming from "@/components/task-manager-card-content/Upcoming";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
@@ -9,7 +8,6 @@ import {
   LucideProps,
   MoreHorizontal,
 } from "lucide-react";
-import { title } from "process";
 import React from "react";
 
 const tiles = [
