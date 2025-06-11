@@ -1,10 +1,11 @@
 import { createAmazonBedrock } from "@ai-sdk/amazon-bedrock";
 import { fromSSO } from "@aws-sdk/credential-providers";
-import { streamText } from "ai";
 import { NextResponse } from "next/server";
-import { experimental_createMCPClient, generateText } from "ai";
+import { experimental_createMCPClient, streamText, tool, generateText } from "ai";
 import { Experimental_StdioMCPTransport } from "ai/mcp-stdio";
 import dotenv from "dotenv";
+import { z } from 'zod';
+import readPdf from "../../../lib/pdf";
 
 dotenv.config();
 
@@ -69,7 +70,21 @@ export async function POST(request: Request) {
       ...apple_toolSetOne,
       ...shopify_toolSetOne,
       ...xero_toolSetOne,
-    };
+        read_policy: tool({
+          description: 'Read the insurance policy information',
+          parameters: z.object({
+            user_question: z.string().describe('Question the user ask about the policy'),
+          }),
+          execute: async ({ user_question }) => {
+            const pdf = await readPdf()
+            const { text } = await generateText({
+              model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
+              prompt: 'You have been given the policy document. Answer the user question based on the policy document. User question is: ' + user_question + '. Policy content:' + pdf
+            });
+            return text;
+          },
+        }),
+      };
 
     if (!messages) {
       return NextResponse.json(
@@ -86,6 +101,10 @@ export async function POST(request: Request) {
       tools: tools,
       messages: messages,
       maxSteps: 15,
+      onStepFinish({ text, toolCalls, toolResults, finishReason, usage }) {
+        // your own logic, e.g. for saving the chat history or recording usage
+        console.log( toolCalls, toolResults )
+      },
     });
 
     return response.toDataStreamResponse();
