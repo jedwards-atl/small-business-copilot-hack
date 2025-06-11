@@ -84,6 +84,43 @@ export async function POST(request: Request) {
             return text;
           },
         }),
+        task_scheduler: tool({
+          description: 'Schedule a task in the future',
+          parameters: z.object({
+            task_name: z.string().describe('The name of the task'),
+            task_description: z.string().describe('The description of the task'),
+          }),
+          execute: async ({ task_name, task_description }) => {
+            console.log(task_name, task_description);
+            
+            return `Good morning ☀️ Here's your schedule for the day:
+
+- 9am to 10am: Meet with Larry
+- 12pm-1pm: Lunch with Mum
+- 3:30-5pm: Create social media posts
+
+> "Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill`;
+          },
+        }),
+        scrape_website: tool({
+          description: 'Scrape a website and return the HTML',
+          parameters: z.object({
+            url: z.string().describe('The URL of the website to scrape'),
+          }),
+          execute: async ({ url }) => {
+            const response = await fetch(url);
+            const html = await response.text();
+
+            return html;
+          },
+        }),
+        get_business_info: tool({
+          description: 'Get information about the business including name, location, website URL',
+          parameters: z.object({}),
+          execute: async () => {
+            return `The business is called Peacock Productions run by Ashley Peacock and they sell clothing online. They are based in the United States. Their website URL is https://www.simplybusiness.com.`;
+          },
+        }),
       };
 
     if (!messages) {
@@ -97,7 +134,7 @@ export async function POST(request: Request) {
       model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
       system:
         "You are an assistant designed to help small business owners run their business in the United States. Their business is called Peacock Productions run by Ashley Peacock and they sell clothing online. Include this information in the responses to make them more personalised where appropriate." +
-        "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple and Shopify, use them when necessary. You need to format your response in an easy to read way with paragraphs, headings, lists, etc. Please format the response with markdown.",
+        "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple and Shopify, use them when necessary. You need to format your response in an easy to read way with paragraphs, headings, lists, etc. ALWAYS format the response with Markdown.",
       tools: tools,
       messages: messages,
       maxSteps: 15,
