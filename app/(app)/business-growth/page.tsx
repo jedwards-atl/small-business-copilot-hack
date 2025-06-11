@@ -20,8 +20,8 @@ const tiles = [
       "Hi Kiron, great news about the new warehouse. A new location can change your insurance needs, especially if you're hiring new staff. Let's make sure you're covered.",
     icon: Bell,
     appsUsed: [
-      { title: "Apple Calendar", icon: Calendar1 },
-      { title: "Apple Calendar", icon: Calendar1 },
+      { title: "Google Calendar", icon: Calendar1 },
+      { title: "Google Calendar", icon: Calendar1 },
     ],
     deepDiveText: "Review Coverage",
   },
@@ -114,7 +114,7 @@ const BusinessGrowthPage = () => {
   return (
     <div>
       {/* Content Title & Description */}
-      <div className="flex flex-col gap-4 mb-8">
+      <div className="flex flex-col gap-4  my-8">
         <h1 className="text-2xl font-semibold text-gray-900">
           Support for your growing business
         </h1>

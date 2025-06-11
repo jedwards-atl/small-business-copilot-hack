@@ -10,6 +10,9 @@ import {
   ListCheck,
   Clock,
   TrendingUp,
+  ChartColumnIncreasing,
+  Instagram,
+  UserSearch,
 } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
@@ -35,10 +38,12 @@ const projects = [
 ];
 
 const connectedApps = [
-  { title: "Google Drive", icon: Shield },
+  { title: "Simply Business", icon: Shield },
   { title: "Shopify", icon: Store },
-  { title: "Apple Calendar", icon: Calendar1 },
-  { title: "Reminders", icon: ListCheck },
+  { title: "Google Calendar", icon: Calendar1 },
+  { title: "Google Analytics", icon: ChartColumnIncreasing },
+  { title: "Instagram", icon: Instagram },
+  { title: "Xero", icon: UserSearch },
 ];
 
 const chatHistory = [

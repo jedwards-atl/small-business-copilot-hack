@@ -51,7 +51,7 @@ const Upcoming = () => {
             <Calendar1 className="w-8 h-8 text-purple-600" />
             {/* <div className="w-2 h-2 bg-purple-300 rounded-full group-hover:bg-gray-400"></div> */}
             <span className="text-md text-gray-900 truncate">
-              Apple Calendar
+              Google Calendar
             </span>
           </div>
         </div>

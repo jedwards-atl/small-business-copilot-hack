@@ -16,11 +16,9 @@ export const metadata: Metadata = {
   title: "Small Business Copilot",
   description: "Your AI-powered business assistant",
   icons: {
-    icon: [
-      { url: '/favicon.png', type: 'image/png' },
-    ],
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [{ url: "/ai-orb.png", type: "image/png" }],
+    shortcut: "/ai-orb.png",
+    apple: "/ai-orb.png",
   },
 };
 
