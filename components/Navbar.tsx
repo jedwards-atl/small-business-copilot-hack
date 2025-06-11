@@ -18,9 +18,17 @@ const Navbar = () => {
 
   return (
     <nav className="container flex items-center justify-between mx-auto w-full py-4 max-sm:px-4">
-      <div className="flex items-center cursor-pointer">
+      <div className="relative flex items-center cursor-pointer">
+        <div className="absolute inset-0 bg-purple-600 rounded-full opacity-50 blur-xl scale-75"></div>
+
         <Link href="/">
-          <Image src="/globe.svg" alt="Logo" width={40} height={40} />
+          <Image
+            src="/ai-orb.png"
+            className="relative z-10 bg-transparent"
+            alt="orb"
+            width={77}
+            height={77}
+          />
         </Link>
       </div>
 
