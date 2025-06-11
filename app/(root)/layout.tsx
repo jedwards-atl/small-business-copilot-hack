@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import LandingNav from "@/components/LandingNav";
 
 export default function RootLayout({
   children,
@@ -7,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <main>
-      <Navbar />
+      <LandingNav />
 
       {children}
     </main>
