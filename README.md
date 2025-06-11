@@ -4,7 +4,16 @@
 2. Initialize nextJS project - while in the project directory run: `npx create-next-app@latest ./`
 3. Initialize [ShadCN](https://ui.shadcn.com/) - `NODE_TLS_REJECT_UNAUTHORIZED=0 npx shadcn@latest init`
 
-The project uses [TailwindCSS](https://tailwindcss.com/docs/flex)
+## Styling
+
+The project uses [TailwindCSS](https://tailwindcss.com/docs/flex) to easily style components with TailwindCSS's shorthand. Follow the link to the TailwindCSS docs to learn specifics. A useful tip is to google "tailwindcss padding" for example and the search will result in a TailwindCSS doc regarding padding so you can easily find the correct page instead of sifting through their docs manually.
+
+## UI Components
+
+The project uses ShadCN (linked above) to implement common components in a uniform way.
+Currently `Button` and `Card` components have been installed from ShadCN. ShadCN is more like a library that allows you to install components into your project (directory: `components/ui`) that live completely locally in the project and do not reference any outside source once installed.
+
+To install a component, find one from their docs. For example to install the `Button` component, the command: `NODE_TLS_REJECT_UNAUTHORIZED=0 npx shadcn@latest add button` was run.
 
 Boilerplate docs from nextJS:
 
