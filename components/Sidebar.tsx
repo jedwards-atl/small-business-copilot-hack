@@ -1,6 +1,5 @@
 "use client";
 
-import { Separator } from "@radix-ui/react-separator";
 import {
   Search,
   Plus,
@@ -10,6 +9,7 @@ import {
   Store,
   ListCheck,
   Clock,
+  TrendingUp,
 } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
@@ -21,9 +21,9 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Business Insurance",
-    icon: Shield,
-    href: "/task-manager1",
+    title: "Business Growth",
+    icon: TrendingUp,
+    href: "/business-growth",
     selected: false, // TODO: Make this dynamic based on the current route
   },
   {

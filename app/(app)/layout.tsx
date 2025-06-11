@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 
 export default function RootLayout({
@@ -6,10 +7,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex h-screen bg-gray-50 flex-row">
+    <main className="flex min-h-screen h-screen bg-gray-50 flex-row">
       <Sidebar />
 
-      {children}
+      <div className="flex flex-col w-full h-full bg-gray-50 px-16 lg:container lg:mx-auto">
+        <Header />
+
+        {children}
+      </div>
     </main>
   );
 }

@@ -33,34 +33,14 @@ const tiles = [
 
 const TaskManagerPage = () => {
   return (
-    <div className="min-h-screen h-screen w-full bg-gray-50 px-16 lg:container lg:mx-auto">
-      {/* Header */}
-      <div className="flex flex-row justify-end items-center w-full py-6">
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative bg-purple-100 rounded-full"
-          >
-            <Bell className="h-5 w-5 text-purple-800" />
-            <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full"></span>
-          </Button>
-
-          <Avatar className="h-8 w-8">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        </div>
-      </div>
-
+    <div className="">
       {/* Content Title */}
       <h1 className="text-2xl font-semibold text-gray-900 my-8">
         Here's an overview of the tasks you completed
       </h1>
 
-      {/* Dashboard Grid */}
+      {/* Tasks Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        {/* Ranked by Impact */}
         {tiles.map(({ title, component: Component, columns }, index) => (
           <div className={`col-span-1 lg:col-span-${columns}`}>
             <Card className="shadow-lg border-none h-full">
