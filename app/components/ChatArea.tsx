@@ -1,25 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useChat } from '@ai-sdk/react'
 import Markdown from 'react-markdown'
-
-
-interface Message {
-  id: string;
-  text: string;
-  sender: 'user' | 'ai';
-  timestamp: Date;
-}
+import '../styles/chat.css'
 
 const ChatArea = () => {
   const {messages, input, handleInputChange, handleSubmit } = useChat({api: '/api/chat'});
 
   return (
       <form
-      onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
+        className="h-full flex flex-col"
       >
-        <div className="flex flex-col h-full">
+        <div className="flex-1 min-h-0 flex flex-col">
           {/* Messages area */}
           <div className="flex-1 overflow-y-auto p-4 space-y-6">
             {messages.map((message) => (
@@ -36,7 +30,7 @@ const ChatArea = () => {
                   )}
                   <div className="flex-1">
                     <div
-                        className={`rounded-lg p-4 shadow-sm ${
+                        className={`rounded-lg p-4 shadow-sm message ${
                             message.role === 'user'
                                 ? 'bg-blue-500 text-white'
                                 : 'bg-white text-gray-800'
@@ -55,7 +49,7 @@ const ChatArea = () => {
           </div>
 
           {/* Input area */}
-          <div className="border-t border-gray-200 p-4">
+          <div className="border-t border-gray-200 p-4 bg-white">
             <div className="flex space-x-4">
               <div className="flex-1">
                 <input
@@ -75,7 +69,6 @@ const ChatArea = () => {
             </div>
           </div>
         </div>
-
       </form>
   );
 };
