@@ -7,7 +7,6 @@ import {
   ListChecks,
   Calendar1,
   Store,
-  ListCheck,
   Clock,
   TrendingUp,
   ChartColumnIncreasing,
@@ -76,9 +75,11 @@ const Sidebar = () => {
         <div className="flex flex-col gap-4">
           {/* New Chat */}
           <div className="">
-            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white cursor-pointer">
-              New Chat
-            </Button>
+            <Link href="/chat">
+              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white cursor-pointer">
+                New Chat
+              </Button>
+            </Link>
           </div>
 
           {/* Search */}
