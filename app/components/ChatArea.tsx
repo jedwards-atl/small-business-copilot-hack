@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { useChat } from '@ai-sdk/react'
+import Markdown from 'react-markdown'
+
 
 interface Message {
   id: string;
@@ -40,7 +42,7 @@ const ChatArea = () => {
                                 : 'bg-white text-gray-800'
                         }`}
                     >
-                      <p>{message.content}</p>
+                      <Markdown>{message.content}</Markdown>
                     </div>
                   </div>
                   {message.role === 'user' && (

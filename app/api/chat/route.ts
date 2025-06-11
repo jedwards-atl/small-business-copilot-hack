@@ -66,7 +66,7 @@ export async function POST(request: Request) {
     const response = streamText({
       model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
       system:
-        "You are a helpful assistant. Use tools as needed. Format your responses elegantly, concisely, and in a way that is easy to read..",
+        "You are an assistant designed to help small business owners run their business. You have access to tools that can help you answer questions about Apple and Shopify. You need to format your response in an easy to read way with paragraphs and headings. Please format the response with markdown. For shopify just show product name, price and inventory.",
       tools: tools,
       messages: messages,
       maxSteps: 5,
