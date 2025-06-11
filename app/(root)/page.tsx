@@ -40,7 +40,7 @@ export default function Home() {
             </div>
             <Button
               size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-8 text-xl"
+              className="bg-purple-600 hover:bg-purple-700 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl"
             >
               <div className="flex flex-row  gap-2 items-center justify-center">
                 Get Started
