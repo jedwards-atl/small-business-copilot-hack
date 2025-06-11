@@ -1,5 +1,7 @@
 ## Project Setup Steps:
 
+(to reference, not needed for individual dev usage)
+
 1. Create git repository
 2. Initialize nextJS project - while in the project directory run: `npx create-next-app@latest ./`
 3. Initialize [ShadCN](https://ui.shadcn.com/) - `NODE_TLS_REJECT_UNAUTHORIZED=0 npx shadcn@latest init`
@@ -19,7 +21,9 @@ Boilerplate docs from nextJS:
 
 ## Getting Started
 
-First, run the development server:
+First, install node modules: `npm install`
+
+Then, run the development server:
 
 ```bash
 npm run dev
