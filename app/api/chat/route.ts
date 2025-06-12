@@ -14,6 +14,11 @@ import readPdf from "../../../lib/pdf";
 
 dotenv.config();
 
+function randomNumFromInterval(min, max) { // min and max included
+  return (Math.random() * (max - min + 1) + min).toFixed(2);
+}
+
+const indicativePriceUrl = "https://indicative-pricing-staging.api.simplybusiness.com/v1/indicative_prices"
 const bedrock = createAmazonBedrock({
   region: "us-east-1",
   credentialProvider: fromSSO({
@@ -93,6 +98,27 @@ export async function POST(request: Request) {
               pdf,
           });
           return text;
+        },
+      }),
+      insurance_indicative_price: tool({
+        description: "Generate an indicative price for insurance",
+        parameters: z.object({
+          trade: z
+              .string()
+              .describe("The trade of the business"),
+          employee_payroll: z
+              .string()
+              .describe("The total employee payroll for one year"),
+          state: z
+              .string()
+              .describe("The state the business operates in"),
+          insurance_product: z
+              .string()
+              .describe("The insurance product you want an indicative price for including Worker's Compensation and Business Owners Policy")
+
+        }),
+        execute: async ({ trade, employee_payroll, state, insurance_product }) => {
+          return `The price for ${insurance_product} is ${randomNumFromInterval(20,100)} per month`
         },
       }),
       task_scheduler: tool({
