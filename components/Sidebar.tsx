@@ -66,7 +66,7 @@ const Sidebar = () => {
           width={40}
           height={40}
         />
-        <h3 className="text-sm font-medium text-gray-900 tracking-wide">
+        <h3 className="text-sm font-medium text-sb-primary tracking-wide">
           Ash & Co. AI Assistant
         </h3>
       </div>
@@ -76,7 +76,7 @@ const Sidebar = () => {
           {/* New Chat */}
           <div className="">
             <Link href="/chat">
-              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white cursor-pointer">
+              <Button className="w-full bg-sb-primary hover:bg-azure-400 text-white cursor-pointer">
                 New Chat
               </Button>
             </Link>
@@ -88,7 +88,7 @@ const Sidebar = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-4 h-4" />
               <Input
                 placeholder="Search"
-                className="pl-10 bg-gray-50 border-gray-200 rounded-lg"
+                className="pl-10 bg-background-highlight border-gray-200 rounded-lg"
               />
             </div>
           </div>
@@ -97,10 +97,10 @@ const Sidebar = () => {
         {/* Projects */}
         <div className="">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide">
+            <h3 className="text-sm font-medium text-sb-primary uppercase tracking-wide">
               PROJECTS
             </h3>
-            <Plus className="w-4 h-4 text-purple-800 cursor-pointer" />
+            <Plus className="w-4 h-4 text-sb-primary cursor-pointer" />
           </div>
           <div className="flex flex-col space-y-3">
             {projects.map(({ title, icon: Icon, href }) => (
@@ -108,14 +108,14 @@ const Sidebar = () => {
                 <div
                   className={cn(
                     pathname === href
-                      ? "border-purple-600 bg-purple-600"
-                      : "hover:bg-purple-200 border-purple-200",
+                      ? "text-sb-primary bg-sb-primary"
+                      : "hover:bg-sb-light border-sb-light",
                     "flex items-center space-x-3 px-2 py-4 rounded-lg cursor-pointer border"
                   )}
                 >
                   <Icon
                     className={cn(
-                      pathname === href ? "text-white" : "text-purple-600",
+                      pathname === href ? "text-white" : "text-sb-primary",
                       "w-4 h-4"
                     )}
                   />
@@ -136,10 +136,10 @@ const Sidebar = () => {
         {/* Connected Apps */}
         <div className="">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide">
-              PROJECTS
+            <h3 className="text-sm font-medium text-sb-primary uppercase tracking-wide">
+              CONNECTED APPS
             </h3>
-            <Plus className="w-4 h-4 text-purple-800 cursor-pointer" />
+            <Plus className="w-4 h-4 text-sb-primary cursor-pointer" />
           </div>
           <div className="space-y-1">
             {connectedApps.map(({ icon: Icon, title }) => (
@@ -147,8 +147,7 @@ const Sidebar = () => {
                 key={title}
                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
               >
-                <Icon className="w-4 h-4 text-purple-600" />
-                {/* <div className="w-2 h-2 bg-purple-300 rounded-full group-hover:bg-gray-400"></div> */}
+                <Icon className="w-4 h-4 text-sb-primary" />
                 <span className="text-sm text-gray-900 truncate">{title}</span>
               </div>
             ))}
@@ -157,7 +156,7 @@ const Sidebar = () => {
 
         {/* Chat History */}
         <div className="flex flex-col">
-          <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide mb-3">
+          <h3 className="text-sm font-medium text-sb-primary uppercase tracking-wide mb-3">
             CHAT HISTORY
           </h3>
           <div className="space-y-1">
@@ -166,8 +165,7 @@ const Sidebar = () => {
                 key={index}
                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
               >
-                <Clock className="w-4 h-4 text-gray-600" />
-                {/* <div className="w-2 h-2 bg-purple-300 rounded-full group-hover:bg-gray-400"></div> */}
+                <Clock className="w-4 h-4 text-medium" />
                 <span className="text-sm text-gray-900 truncate">{chat}</span>
               </div>
             ))}

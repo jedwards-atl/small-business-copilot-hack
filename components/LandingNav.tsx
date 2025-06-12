@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="container flex items-center justify-between mx-auto w-full py-4 max-sm:px-4">
       <div className="relative flex items-center cursor-pointer">
-        <div className="absolute inset-0 bg-purple-600 rounded-full opacity-50 blur-xl scale-75"></div>
+        <div className="absolute inset-0 bg-azure-600 rounded-full opacity-50 blur-xl scale-75"></div>
 
         <Link href="/">
           <Image

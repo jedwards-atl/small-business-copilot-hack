@@ -42,7 +42,7 @@ export default function Home() {
             <Link href="/chat">
               <Button
                 size="lg"
-                className="bg-purple-600 hover:bg-purple-700 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl cursor-pointer"
+                className="bg-sb-primary hover:bg-azure-600 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl cursor-pointer"
               >
                 <div className="flex flex-row  gap-2 items-center justify-center">
                   Get Started
@@ -53,16 +53,16 @@ export default function Home() {
           </div>
 
           <div className="relative max-sm:px-4">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-purple-400 rounded-full blur-3xl opacity-30 scale-150 overflow-x-hidden"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-azure-400 rounded-full blur-3xl opacity-30 scale-150 overflow-x-hidden"></div>
             <div className="relative bg-gray-800 rounded-lg p-8 shadow-2xl">
               <div className="bg-white rounded-lg p-6 mb-4">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-8 h-8 bg-gray-800 rounded-full"></div>
+                  <div className="w-8 h-8 bg-sb-primary-hover rounded-full"></div>
                   <div className="flex-1 h-2 bg-gray-200 rounded"></div>
                 </div>
                 <div className="space-y-2 ml-11">
-                  <div className="h-2 bg-purple-200 rounded w-3/4"></div>
-                  <div className="h-2 bg-purple-200 rounded w-1/2"></div>
+                  <div className="h-2 bg-azure-400 rounded w-3/4"></div>
+                  <div className="h-2 bg-azure-400 rounded w-1/2"></div>
                 </div>
               </div>
               <div className="bg-white rounded-lg p-6">
@@ -73,9 +73,9 @@ export default function Home() {
               </div>
               <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
                 <div className="space-y-1">
-                  <div className="h-1 bg-purple-400 rounded w-8"></div>
-                  <div className="h-1 bg-purple-400 rounded w-6"></div>
-                  <div className="h-1 bg-purple-400 rounded w-4"></div>
+                  <div className="h-1 bg-azure-400 rounded w-8"></div>
+                  <div className="h-1 bg-azure-400 rounded w-6"></div>
+                  <div className="h-1 bg-azure-400 rounded w-4"></div>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function Home() {
               className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <CardContent className="p-4 text-center space-y-4">
-                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 bg-sb-primary-hover rounded-full flex items-center justify-center mx-auto">
                   <Icon className="text-white w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">{title}</h3>

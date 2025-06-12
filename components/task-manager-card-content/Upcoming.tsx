@@ -19,7 +19,7 @@ const Upcoming = () => {
         </div>
 
         <div className="span-col-1 flex-1 h-20">
-          <div className="border-l-4 border-purple-600 pl-4 h-full">
+          <div className="border-l-4 border-azure-400 pl-4 h-full">
             <p className="text-sm text-gray-600 tracking-wide font-medium mb-1">
               Insights
             </p>
@@ -48,8 +48,7 @@ const Upcoming = () => {
         <div>
           <p className="text-sm text-gray-600 font-medium mb-3">App Used:</p>
           <div className="flex items-center space-x-3">
-            <Calendar1 className="w-8 h-8 text-purple-600" />
-            {/* <div className="w-2 h-2 bg-purple-300 rounded-full group-hover:bg-gray-400"></div> */}
+            <Calendar1 className="w-8 h-8 text-azure-400" />
             <span className="text-sm text-gray-900 truncate">
               Google Calendar
             </span>

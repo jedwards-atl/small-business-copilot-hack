@@ -3,6 +3,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-sb-primary: oklch(0.4651 0.2359 277.4); /* also azure-500 */
+  --color-sb-light: oklch(0.778 0.0935 289.59);
+  --color-azure-600: oklch(0.3268 0.1563 278.76);
+  --color-azure-400: oklch(0.6672 0.1453 287.28);
+  --color-background-highlight: oklch(0.9732 0.0107 291.96);
+  --color-medium: oklch(0.4794 0.0048 286.22);
+  --color-sb-primary-hover: oklch(0.3268 0.1563 278.76);
+  --color-sb-from: oklch(0.3268 0.1563 278.76);
+  --color-sb-to: oklch(0.5599 0.1946 283.61);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

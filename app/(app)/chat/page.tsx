@@ -24,7 +24,7 @@ const ChatPage = () => {
           width={77}
           height={77}
         />
-        <h1 className="text-4xl font-semibold text-purple-600">SimplyPilot</h1>
+        <h1 className="text-4xl font-semibold text-sb-primary">SimplyPilot</h1>
       </div>
 
       {/* Input Section */}
@@ -41,7 +41,7 @@ const ChatPage = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="h-8 w-8 p-0 text-purple-600 hover:bg-purple-100"
+              className="cursor-pointer h-8 w-8 p-0 text-sb-primary hover:bg-background-highlight"
             >
               <Plus className="h-4 w-4" />
             </Button>
@@ -53,14 +53,14 @@ const ChatPage = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-8 w-8 p-0 text-purple-600 hover:bg-purple-100"
+                className="cursor-pointer h-8 w-8 p-0 text-sb-primary hover:bg-background-highlight"
               >
                 <Mic className="h-4 w-4" />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-8 w-8 p-0 bg-purple-600 hover:bg-purple-800 text-white hover:text-white"
+                className="cursor-pointer h-8 w-8 p-0 bg-sb-primary hover:bg-azure-600 text-white hover:text-white"
               >
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -69,12 +69,12 @@ const ChatPage = () => {
         </div>
 
         {/* Suggestions */}
-        <div className="flex flex-wrap gap-2 justify-center w-2/5">
+        <div className="flex flex-wrap gap-4 justify-center w-3/5">
           {suggestions.map((suggestion, index) => (
             <Button
               key={index}
               variant="outline"
-              className="text-purple-800 hover:bg-purple-200 hover:text-purple-800 bg-purple-100 border-none text-sm px-4 py-2 h-auto cursor-pointer rounded-3xl"
+              className="text-sb-primary hover:bg-gray-200 hover:text-sb-primary bg-gray-100 font-bold border-none text-sm px-4 py-2 h-auto cursor-pointer rounded-3xl"
             >
               {suggestion}
             </Button>

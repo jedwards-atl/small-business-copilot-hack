@@ -70,7 +70,7 @@ const BusinessGrowthPage = () => {
       <Card className="shadow-lg border-none h-full">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle className="flex flex-row items-center gap-4">
-            <Icon className="h-4 w-4 text-purple-600" />
+            <Icon className="h-4 w-4 text-sb-primary" />
             <p className="text-lg font-bold text-gray-900">{title}</p>
           </CardTitle>
           <Button variant="ghost" size="icon" className="cursor-pointer">
@@ -79,7 +79,9 @@ const BusinessGrowthPage = () => {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-6">
-            <h3 className="text-md font-bold text-purple-800">{subtitle}</h3>
+            <h3 className="text-md font-bold text-sb-primary-hover">
+              {subtitle}
+            </h3>
 
             <p className="text-gray-900">{description}</p>
 
@@ -90,9 +92,8 @@ const BusinessGrowthPage = () => {
                     App Used:
                   </p>
                   <div className="flex items-center space-x-3">
-                    <Icon className="w-8 h-8 text-purple-600" />
-                    {/* <div className="w-2 h-2 bg-purple-300 rounded-full group-hover:bg-gray-400"></div> */}
-                    <span className="text-md text-gray-900 truncate">
+                    <Icon className="w-8 h-8 text-azure-400" />
+                    <span className="text-sm text-gray-900 truncate">
                       {title}
                     </span>
                   </div>
@@ -100,7 +101,7 @@ const BusinessGrowthPage = () => {
               ))}
             </div>
 
-            <p className="text-purple-800 font-normal border-b-1 border-purple-800 w-fit cursor-pointer hover:font-medium">
+            <p className="text-sb-primary font-normal border-b-1 border-sb-primary w-fit cursor-pointer hover:font-medium">
               {deepDiveText}
             </p>
           </div>
