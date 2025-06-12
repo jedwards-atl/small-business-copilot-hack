@@ -43,14 +43,14 @@ const OnboardingPage = () => {
           <div className="flex flex-col gap-6 items-center h-full">
             <Toggle
               variant="outline"
-              className="cursor-pointer p-16 w-5/8 flex flex-row items-center gap-2 border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
+              className="cursor-pointer p-16 w-5/8 flex flex-row items-center gap-2 border-gray-100 hover:bg-gray-100 hover:text-sb-primary text-sb-primary"
             >
               <Laptop className="w-6 h-6" />
               <p className="text-lg">Online</p>
             </Toggle>
             <Toggle
               variant="outline"
-              className="cursor-pointer p-16 w-5/8 flex flex-row items-center border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
+              className="cursor-pointer p-16 w-5/8 flex flex-row items-center border-gray-100 hover:bg-gray-100 hover:text-sb-primary text-sb-primary"
             >
               <div className="h-16 w-full flex flex-row gap-2 items-center justify-center">
                 <Store className="w-20 h-20" />
