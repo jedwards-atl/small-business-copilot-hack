@@ -1,23 +1,36 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react'; // Import useEffect and useRef
+import React, { useEffect, useRef } from 'react';
 import Markdown from 'react-markdown';
 import { type Message } from '@ai-sdk/react';
 
 interface ChatAreaProps {
     messages: Message[];
-    handleSubmit: (event?: React.FormEvent<HTMLFormElement>) => void; // Assuming this is still needed for a form wrapper
+    handleSubmit: (event?: React.FormEvent<HTMLFormElement>) => void;
+    chatSubmitted: boolean; // Add chatSubmitted to props
 }
 
-const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
-  const scrollableContainerRef = useRef<HTMLDivElement>(null); // Ref for the scrollable container
+const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit, chatSubmitted }) => {
+  const scrollableContainerRef = useRef<HTMLDivElement>(null);
+  const hasScrolledOnExpansionRef = useRef<boolean>(false);
 
   useEffect(() => {
-    // Scroll to the bottom every time messages update
-    if (scrollableContainerRef.current) {
-      scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight;
+    if (chatSubmitted) {
+      // If chat is expanded and we haven't performed the initial scroll for this expansion
+      if (!hasScrolledOnExpansionRef.current && scrollableContainerRef.current) {
+        // Use setTimeout to ensure the scroll happens after DOM updates (e.g., messages rendering)
+        setTimeout(() => {
+          if (scrollableContainerRef.current) {
+            scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight;
+          }
+        }, 0);
+        hasScrolledOnExpansionRef.current = true; // Mark that initial scroll for this expansion has occurred
+      }
+    } else {
+      // Reset the flag when the chat is collapsed
+      hasScrolledOnExpansionRef.current = false;
     }
-  }, [messages]); // Dependency array ensures this runs when messages change
+  }, [chatSubmitted, messages]); // Rerun effect if chatSubmitted state or messages change
 
   if (!messages || messages.length === 0) {
     return (
@@ -29,13 +42,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
 
   return (
       <form
-        onSubmit={handleSubmit} // If this form is not actually submitting from here, consider removing it
+        onSubmit={handleSubmit}
         className="h-full flex flex-col"
       >
         <div className="flex-1 min-h-0 flex flex-col">
           {/* Messages area */}
           <div 
-            ref={scrollableContainerRef} // Assign ref to the scrollable div
+            ref={scrollableContainerRef}
             className="flex-1 overflow-y-auto p-4 space-y-6"
           >
             {messages.map((message) => (
@@ -68,8 +81,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
                   )}
                 </div>
             ))}
-            {/* Optional: An empty div at the end to help ensure smooth scrolling to the very bottom */}
-            {/* <div ref={messagesEndRef} /> */}
           </div>
         </div>
       </form>
