@@ -92,7 +92,11 @@ export async function POST(request: Request) {
           const { text } = await generateText({
             model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
             prompt:
-              "You have been given the policy document. Answer the user question based on the policy document. User question is: " +
+              "You have been given the policy document. Answer the user question based on the policy document. " + 
+              "Keep your answer concise. " + 
+              "Always include pricing information " + 
+              "Do not provide recomentations for other products or covers " + 
+              "User question is: " +
               user_question +
               ". Policy content:" +
               pdf,
@@ -171,8 +175,14 @@ export async function POST(request: Request) {
     const response = streamText({
       model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
       system:
-        "You are an assistant designed to help small business owners run their business in the United States. Their business is called Peacock Productions run by Ashley Peacock and they sell clothing online. Include this information in the responses to make them more personalised where appropriate." +
-        "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple, Xero and Shopify, use them when necessary. Today's date is 12th June 2025. You need to format your response in an easy to read way with paragraphs, headings, lists, etc. ALWAYS format the response with Markdown.",
+        "You are an assistant designed to help small business owners run their business in the United States. " + 
+        "Their business is called Peacock Productions run by Ashley Peacock and they sell clothing online. " + 
+        "Include this information in the responses to make them more personalised where appropriate." +
+        "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple, Xero and Shopify, " + 
+        "use them when necessary. Today's date is 12th June 2025. You need to format your response in an easy to read way with paragraphs, headings, " + 
+        "lists, etc. ALWAYS format the response with Markdown." + 
+        "Keep your responses concise and to the point. Format your response so the relevant data is passed to the user in the least amount of words" +
+        "Limit your response when asked about coverage/insurance to Business Owners Policy (BOP) and Workers compensation ", //This is a hack
       tools: tools,
       messages: messages,
       maxSteps: 15,
