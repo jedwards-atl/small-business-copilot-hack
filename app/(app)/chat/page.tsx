@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Mic, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import ChatArea from "@/components/chat/chatArea";
-import { useChat} from '@ai-sdk/react';
+import { useChat, type Message } from '@ai-sdk/react'; // Ensure Message type is imported
 
 const suggestions = [
   "Create a marketing plan",
@@ -19,7 +19,8 @@ const suggestions = [
 const ChatPage = () => {
   const [chatSubmitted, setChatSubmitted] = React.useState(false);
   const chatBoxRef = useRef<HTMLDivElement>(null);
-  const { messages, input, handleInputChange, handleSubmit, setInput } = useChat({ api: '/api/chat' });
+  // Add `append` to the destructured props from useChat
+  const { messages, input, handleInputChange, handleSubmit, setInput, append } = useChat({ api: '/api/chat' });
 
   const submitChat = (event?: React.FormEvent<HTMLFormElement>) => {
     if (event) {
@@ -30,10 +31,24 @@ const ChatPage = () => {
     handleSubmit(event);
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setInput(suggestion); 
-    setChatSubmitted(true);
-    handleSubmit();
+  const handleSuggestionClick = async (suggestion: string) => {
+    setChatSubmitted(true); // Expand the chat area
+
+    // Create the message object for the user's suggestion
+    const userMessage: Message = {
+      id: crypto.randomUUID(), // Generate a unique ID for the message
+      role: 'user',
+      content: suggestion,
+    };
+
+    // Append the message to the chat. This updates the `messages` state
+    // and triggers the API call to get the AI's response.
+    // No need to call handleSubmit separately.
+    await append(userMessage);
+
+    // After the message is appended and the process starts,
+    // clear the input field, similar to how handleSubmit behaves.
+    setInput('');
   };
 
   // Effect to handle clicks outside the chat box
@@ -41,6 +56,7 @@ const ChatPage = () => {
     function handleClickOutside(event: MouseEvent) {
       if (chatBoxRef.current && !chatBoxRef.current.contains(event.target as Node) && chatSubmitted) {
         const targetElement = event.target as HTMLElement;
+
         if (targetElement.closest('button[data-suggestion-button="true"]')) {
           return;
         }
@@ -89,14 +105,15 @@ const ChatPage = () => {
           ref={chatBoxRef} // Assign the ref to the container
           className={`relative transition-all duration-500 ease-in-out ${
             chatSubmitted 
-              ? "w-5/5 h-4/5 mt-8 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm" 
+              ? "w-full h-4/5 mt-8 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm"  // Changed w-5/5 to w-full for clarity
               : "w-2/5" 
           }`}
         >
           {/* Chat Area: Rendered first when chat is submitted for flex order, takes available space */}
           {chatSubmitted && (
             <div className="flex-grow p-4 overflow-y-auto rounded-t-lg"> 
-              <ChatArea messages={messages} handleSubmit={handleSubmit} /> {/* handleSubmit is not a prop of ChatArea based on previous definitions */}
+              {/* Removed handleSubmit prop as ChatArea does not use it */}
+              <ChatArea messages={messages} handleSubmit={handleSubmit} /> 
             </div>
           )}
 
