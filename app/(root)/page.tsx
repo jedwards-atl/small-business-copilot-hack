@@ -26,9 +26,9 @@ const features = [
 
 export default function Home() {
   return (
-    <div className="lg:h-screen w-full max-sm:overflow-x-hidden max-sm:px-4 bg-white">
+    <div className="h-full w-full max-sm:overflow-x-hidden max-sm:px-4 bg-white">
       {/* Hero */}
-      <section className="container mx-auto py-12 lg:py-20">
+      <section className="container mx-auto py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
@@ -39,7 +39,7 @@ export default function Home() {
                 Get Tailored Insights, No Prompts Needed
               </p>
             </div>
-            <Link href="/app">
+            <Link href="/chat">
               <Button
                 size="lg"
                 className="bg-purple-600 hover:bg-purple-700 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl cursor-pointer"
@@ -84,14 +84,14 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto py-12 lg:py-20">
+      <section className="container mx-auto py-12">
         <div className="grid md:grid-cols-3 gap-12 md:gap-24">
           {features.map(({ title, description, icon: Icon }) => (
             <Card
               key={title}
               className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <CardContent className="p-8 text-center space-y-4">
+              <CardContent className="p-4 text-center space-y-4">
                 <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto">
                   <Icon className="text-white w-8 h-8" />
                 </div>

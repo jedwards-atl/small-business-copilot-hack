@@ -78,7 +78,7 @@ const BusinessGrowthPage = () => {
           </Button>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6">
             <h3 className="text-md font-bold text-purple-800">{subtitle}</h3>
 
             <p className="text-gray-900">{description}</p>
@@ -112,7 +112,7 @@ const BusinessGrowthPage = () => {
   return (
     <div>
       {/* Content Title & Description */}
-      <div className="flex flex-col gap-4  my-8">
+      <div className="flex flex-col gap-4 mb-8">
         <h1 className="text-2xl font-semibold text-gray-900">
           Support for your growing business
         </h1>
@@ -123,7 +123,7 @@ const BusinessGrowthPage = () => {
       </div>
 
       {/* Growth Ideas Grid */}
-      <div className="w-full flex flex-col gap-12">
+      <div className="w-full flex flex-col gap-8">
         <div className="w-3/5">{tile(tiles[0])}</div>
 
         <div className="w-full flex flex-row gap-6">

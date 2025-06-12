@@ -3,9 +3,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Calendar1 } from "lucide-react";
 
 const participants = [
-  "https://github.com/shadcn.png",
-  "https://github.com/shadcn.png",
-  "https://github.com/shadcn.png",
+  "/members/brie.png",
+  "/members/deepika.png",
+  "/members/jake.png",
 ];
 
 const Upcoming = () => {
@@ -50,7 +50,7 @@ const Upcoming = () => {
           <div className="flex items-center space-x-3">
             <Calendar1 className="w-8 h-8 text-purple-600" />
             {/* <div className="w-2 h-2 bg-purple-300 rounded-full group-hover:bg-gray-400"></div> */}
-            <span className="text-md text-gray-900 truncate">
+            <span className="text-sm text-gray-900 truncate">
               Google Calendar
             </span>
           </div>

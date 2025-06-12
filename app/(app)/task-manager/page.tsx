@@ -31,18 +31,44 @@ const tiles = [
 ];
 
 const TaskManagerPage = () => {
+  const tile = ({
+    title,
+    component: Component,
+    columns,
+  }: {
+    title: string;
+    component: any;
+    columns: number;
+  }) => (
+    <Card className="shadow-lg border-none h-full w-full">
+      <CardHeader className="flex flex-row items-center justify-between">
+        <CardTitle className="text-lg font-medium">{title}</CardTitle>
+        <Button variant="ghost" size="icon" className="cursor-pointer">
+          <MoreHorizontal className="h-4 w-4" />
+        </Button>
+      </CardHeader>
+      <CardContent className="h-full">
+        <Component />
+      </CardContent>
+    </Card>
+  );
+
   return (
-    <div className="">
+    <div className="w-full h-full">
       {/* Content Title */}
-      <h1 className="text-2xl font-semibold text-gray-900 my-8">
+      <h1 className="text-2xl font-semibold text-gray-900 mb-8">
         Here's an overview of the tasks you completed
       </h1>
 
       {/* Tasks Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        {tiles.map(({ title, component: Component, columns }, index) => (
-          <div className={`col-span-1 lg:col-span-${columns}`}>
-            <Card className="shadow-lg border-none h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 grid-flow-row">
+        <div className="col-span-1 lg:col-span-3">{tile(tiles[0])}</div>
+        <div className="col-span-1 lg:col-span-2">{tile(tiles[1])}</div>
+        <div className="col-span-1 lg:col-span-2">{tile(tiles[2])}</div>
+        <div className="col-span-1 lg:col-span-3">{tile(tiles[3])}</div>
+        {/* {tiles.map(({ title, component: Component, columns }, index) => (
+          <div className={`col-span-1 lg:col-span-2`}>
+            <Card className="shadow-lg border-none h-full w-full">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-lg font-medium">{title}</CardTitle>
                 <Button variant="ghost" size="icon" className="cursor-pointer">
@@ -54,7 +80,7 @@ const TaskManagerPage = () => {
               </CardContent>
             </Card>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

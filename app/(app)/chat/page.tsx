@@ -45,12 +45,10 @@ const ChatPage = () => {
             >
               <Plus className="h-4 w-4" />
             </Button>
-
             <Input
               placeholder="Ask anything"
               className="border-0 shadow-none focus-visible:ring-0 text-base"
             />
-
             <div className="flex items-center gap-1">
               <Button
                 variant="ghost"

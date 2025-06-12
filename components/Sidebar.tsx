@@ -56,7 +56,7 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-white w-80 border-r border-gray-200 flex flex-col p-4">
+    <div className="bg-white w-80 border-r border-gray-200 flex flex-col p-4 h-full">
       {/* Header */}
       <div className="flex flex-row items-center gap-2 mb-6">
         <Image
@@ -71,7 +71,7 @@ const Sidebar = () => {
         </h3>
       </div>
 
-      <div className="flex flex-col space-y-16">
+      <div className="flex flex-col h-full justify-between pb-10">
         <div className="flex flex-col gap-4">
           {/* New Chat */}
           <div className="">
@@ -156,7 +156,7 @@ const Sidebar = () => {
         </div>
 
         {/* Chat History */}
-        <div className="flex-1">
+        <div className="flex flex-col">
           <h3 className="text-sm font-medium text-purple-800 uppercase tracking-wide mb-3">
             CHAT HISTORY
           </h3>
