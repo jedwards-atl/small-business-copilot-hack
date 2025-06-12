@@ -13,7 +13,7 @@ const features = [
   {
     title: "Simplify Your Day. Grow Your Dreams.",
     description:
-      "Cut through the app clutter. SimplyPilot puts all your business data in one simple place. Designed for non-tech users, it saves hours, letting you focus on real growth.",
+      "Cut through the app clutter. Business Buddy puts all your business data in one simple place. Designed for non-tech users, it saves hours, letting you focus on real growth.",
     icon: TrendingUp,
   },
   {

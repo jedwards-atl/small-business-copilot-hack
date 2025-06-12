@@ -69,7 +69,7 @@ const Sidebar = () => {
           />
         </Link>
         <h3 className="text-sm font-medium text-sb-primary tracking-wide">
-          Ash & Co. AI Assistant
+          Business Buddy
         </h3>
       </div>
 

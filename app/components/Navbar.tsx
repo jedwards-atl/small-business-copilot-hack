@@ -11,9 +11,9 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
-              <span className="text-sm font-medium text-gray-600">AP</span>
+              <span className="text-sm font-medium text-gray-600">CW</span>
             </div>
-            <span className="text-sm text-gray-700">Ashley Peacock</span>
+            <span className="text-sm text-gray-700">Craig Winter</span>
           </div>
           
           <button className="text-sm text-gray-600 hover:text-gray-900">

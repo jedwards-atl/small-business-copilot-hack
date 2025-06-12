@@ -30,7 +30,7 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <div className="text-lg font-semibold text-gray-900">SimplyPilot</div>
+          <div className="text-lg font-semibold text-gray-900">Business Buddy</div>
           <div className="text-sm text-gray-500">powered by Simply Business</div>
         </div>
       </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const members = [
-  { name: "Ash", avatar: "/members/ash.png" },
+  { name: "Ashley", avatar: "/members/ash.png" },
   { name: "Kiron", avatar: "/members/kiron.png" },
   { name: "Adam", avatar: "/members/adam.png" },
   { name: "Jim", avatar: "/members/jim.png" },

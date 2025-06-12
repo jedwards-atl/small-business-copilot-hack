@@ -114,7 +114,7 @@ const ChatPage = () => {
             height={77}
           />
           <h1 className="text-4xl font-semibold text-sb-primary">
-            SimplyPilot
+            Business Buddy
           </h1>
         </div>
       )}
@@ -128,7 +128,7 @@ const ChatPage = () => {
         {!chatSubmitted && (
           <div className="text-center">
             <h2 className="text-lg font-medium text-gray-900 mb-4">
-              What can I help with Ash?
+              What can I help with Craig?
             </h2>
           </div>
         )}
