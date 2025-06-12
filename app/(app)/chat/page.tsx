@@ -89,7 +89,7 @@ const ChatPage = () => {
           ref={chatBoxRef} // Assign the ref to the container
           className={`relative transition-all duration-500 ease-in-out ${
             chatSubmitted 
-              ? "w-3/5 h-4/5 mt-8 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm" 
+              ? "w-5/5 h-4/5 mt-8 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm" 
               : "w-2/5" 
           }`}
         >

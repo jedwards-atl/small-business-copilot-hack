@@ -38,20 +38,20 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
                         AI
                       </div>
                   )}
-                  <div className="flex-1">
+                    <div className={`flex-1 ${message.role === 'user' ? 'flex justify-end' : 'flex justify-start'}`}>
                     <div
-                        className={`rounded-lg p-4 shadow-sm message ${
-                            message.role === 'user'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-white text-gray-800'
-                        }`}
+                      className={`rounded-lg p-4 w-3/5 shadow-sm message ${
+                        message.role === 'user'
+                          ? 'bg-sb-primary text-white'
+                          : 'bg-white text-gray-800'
+                      }`}
                     >
                       <Markdown>{message.content}</Markdown>
                     </div>
-                  </div>
+                    </div>
                   {message.role === 'user' && (
-                      <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
-                        <span className="text-sm font-medium text-gray-600">AP</span>
+                      <div className="w-8 h-8 rounded-full bg-sb-primary text-white flex items-center justify-center">
+                        <span className="text-sm font-medium">AP</span>
                       </div>
                   )}
                 </div>
