@@ -2,11 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Bell,
-  Calendar1,
   Heart,
   Lightbulb,
+  User,
   LucideProps,
   MoreHorizontal,
+  ShoppingCart,
 } from "lucide-react";
 import React from "react";
 
@@ -18,8 +19,8 @@ const tiles = [
       "Hi Kiron, great news about the new warehouse. A new location can change your insurance needs, especially if you're hiring new staff. Let's make sure you're covered.",
     icon: Bell,
     appsUsed: [
-      { title: "Google Calendar", icon: Calendar1 },
-      { title: "Google Calendar", icon: Calendar1 },
+      { title: "Shopify", icon: ShoppingCart },
+      { title: "Xero", icon: User },
     ],
     deepDiveText: "Review Coverage",
   },
