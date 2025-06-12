@@ -10,7 +10,6 @@ interface ChatAreaProps {
 }
 
 const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
-  const messagesEndRef = useRef<HTMLDivElement>(null); // Ref for the scrollable container
   const scrollableContainerRef = useRef<HTMLDivElement>(null); // Ref for the scrollable container
 
   useEffect(() => {
