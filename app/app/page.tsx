@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import ChatArea from "../components/ChatArea";
+import ChatAreaOG from "../components/ChatAreaOG";
 
 const ChatsPage = () => {
   return (
@@ -18,7 +18,7 @@ const ChatsPage = () => {
         
         {/* Chat area */}
         <div className="flex-1 overflow-hidden">
-          <ChatArea />
+          <ChatAreaOG />
         </div>
       </div>
     </div>

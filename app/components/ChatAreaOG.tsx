@@ -5,7 +5,7 @@ import { useChat } from '@ai-sdk/react'
 import Markdown from 'react-markdown'
 import '../styles/chat.css'
 
-const ChatArea = () => {
+const ChatAreaOG = () => {
   const {messages, input, handleInputChange, handleSubmit } = useChat({api: '/api/chat'});
 
   return (
@@ -73,4 +73,4 @@ const ChatArea = () => {
   );
 };
 
-export default ChatArea; 
+export default ChatAreaOG; 
