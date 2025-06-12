@@ -1,9 +1,15 @@
+'use client';
+
 import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import ChatArea from "../components/ChatArea";
+import { useSearchParams } from "next/navigation";
 
 const ChatsPage = () => {
+  const searchParams = useSearchParams();
+  const notification = searchParams.get("notification");
+
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
@@ -18,7 +24,7 @@ const ChatsPage = () => {
         
         {/* Chat area */}
         <div className="flex-1 overflow-hidden">
-          <ChatArea />
+          <ChatArea notification={notification} />
         </div>
       </div>
     </div>

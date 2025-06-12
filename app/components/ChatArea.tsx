@@ -1,15 +1,37 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useChat } from '@ai-sdk/react'
 import Markdown from 'react-markdown'
+
+
 import '../styles/chat.css'
 
-const ChatArea = () => {
+const ChatArea = ({ notification }: { notification: string }) => {
   const {messages, input, handleInputChange, handleSubmit } = useChat({api: '/api/chat'});
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const submitButtonRef = React.useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (notification) {
+      // Create a synthetic event to set the input
+      const event = {
+        target: {
+          value: 'I have a new warehouse, and I\'m also going to be hiring my first employee, can you check my insurance coverage is still appropriate?'
+        }
+      } as React.ChangeEvent<HTMLInputElement>;
+      
+      handleInputChange(event);
+      // Click the submit button to trigger form submission
+      setTimeout(() => {
+        submitButtonRef.current?.click();
+      }, 0);
+    }
+  }, [notification]);
 
   return (
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         className="h-full flex flex-col"
       >
@@ -61,6 +83,7 @@ const ChatArea = () => {
                 />
               </div>
               <button
+                  ref={submitButtonRef}
                   type={"submit"}
                   className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
               >

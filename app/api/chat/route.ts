@@ -118,7 +118,7 @@ export async function POST(request: Request) {
 
         }),
         execute: async ({ trade, employee_payroll, state, insurance_product }) => {
-          return `The price for ${insurance_product} is ${randomNumFromInterval(20,100)} per month`
+          return `The price for ${insurance_product} is ${randomNumFromInterval(40,100)} per month`
         },
       }),
       task_scheduler: tool({

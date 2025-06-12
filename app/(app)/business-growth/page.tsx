@@ -9,6 +9,7 @@ import {
   MoreHorizontal,
   ShoppingCart,
 } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const tiles = [
@@ -102,9 +103,12 @@ const BusinessGrowthPage = () => {
               ))}
             </div>
 
-            <p className="text-sb-primary font-normal border-b-1 border-sb-primary w-fit cursor-pointer hover:font-medium">
+            <Link 
+              href="/app?notification=insurance_coverage_change"
+              className="text-sb-primary font-normal border-b-1 border-sb-primary w-fit cursor-pointer hover:font-medium"
+            >
               {deepDiveText}
-            </p>
+            </Link>
           </div>
         </CardContent>
       </Card>

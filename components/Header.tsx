@@ -52,7 +52,7 @@ const Header = () => {
                   <div>
                     <h4 className="text-sm font-medium">Change In Your Business Detected</h4>
                     <p className="text-sm text-muted-foreground">
-                      It looks like you started paying rent for a new warehouse, click here to check your insurance coverage is still appropriate for your business.
+                      It looks like you started paying rent for a new warehouse, and hired some employees,click here to check your insurance coverage is still appropriate for your business.
                     </p>
                   </div>
                 </div>
