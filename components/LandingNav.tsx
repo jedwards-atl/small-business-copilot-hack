@@ -18,10 +18,9 @@ const Navbar = () => {
 
   return (
     <nav className="container flex items-center justify-between mx-auto w-full py-4 max-sm:px-4">
-      <div className="relative flex items-center cursor-pointer">
-        <div className="absolute inset-0 bg-azure-600 rounded-full opacity-50 blur-xl scale-75"></div>
-
-        <Link href="/">
+      <Link href="/" className="flex items-center gap-3">
+        <div className="relative">
+          <div className="absolute inset-0 bg-azure-600 rounded-full opacity-50 blur-xl scale-75"></div>
           <Image
             src="/ai-orb.png"
             className="relative z-10 bg-transparent"
@@ -29,8 +28,12 @@ const Navbar = () => {
             width={77}
             height={77}
           />
-        </Link>
-      </div>
+        </div>
+        <div>
+          <div className="text-lg font-semibold text-gray-900">SimplyPilot</div>
+          <div className="text-sm text-gray-500">powered by Simply Business</div>
+        </div>
+      </Link>
 
       <div className="flex items-center gap-8">
         {navItems.map(({ label, href }) => (
