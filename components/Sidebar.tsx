@@ -37,12 +37,12 @@ const projects = [
 ];
 
 const connectedApps = [
-  { title: "Simply Business", icon: Shield },
-  { title: "Shopify", icon: Store },
-  { title: "Google Calendar", icon: Calendar1 },
-  { title: "Google Analytics", icon: ChartColumnIncreasing },
-  { title: "Instagram", icon: Instagram },
-  { title: "Xero", icon: UserSearch },
+  { icon: "/apps/sb.png", height: 19, width: 69 },
+  { icon: "/apps/shopify.png", height: 25, width: 80 },
+  { icon: "/apps/g-calendar.png", height: 22, width: 73 },
+  { icon: "/apps/g-analytics.png", height: 24, width: 101 },
+  { icon: "/apps/instagram.png", height: 24, width: 101 },
+  { title: "Xero", icon: "/apps/xero.png", height: 29, width: 29 },
 ];
 
 const chatHistory = [
@@ -73,7 +73,7 @@ const Sidebar = () => {
         </h3>
       </div>
 
-      <div className="flex flex-col h-full max-lg:justify-between xl:gap-16 pb-10">
+      <div className="flex flex-col h-full justify-between pb-10">
         <div className="flex flex-col gap-4">
           {/* New Chat */}
           <div className="">
@@ -144,13 +144,17 @@ const Sidebar = () => {
             <Plus className="w-4 h-4 text-sb-primary cursor-pointer" />
           </div>
           <div className="space-y-1">
-            {connectedApps.map(({ icon: Icon, title }) => (
+            {connectedApps.map(({ icon, title, height, width }) => (
               <div
-                key={title}
+                key={icon}
                 className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 cursor-pointer"
               >
-                <Icon className="w-4 h-4 text-sb-primary" />
-                <span className="text-sm text-gray-900 truncate">{title}</span>
+                <Image src={icon} alt={icon} width={width} height={30} />
+                {title && (
+                  <span className="text-sm text-gray-900 truncate">
+                    {title}
+                  </span>
+                )}
               </div>
             ))}
           </div>

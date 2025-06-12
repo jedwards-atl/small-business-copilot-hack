@@ -13,6 +13,7 @@ import { Toggle } from "@/components/ui/toggle";
 import { Laptop, Store, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const OnboardingPage = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -70,6 +71,15 @@ const OnboardingPage = () => {
     </div>
   );
 
+  const apps = [
+    { icon: "/apps/sb.png", height: 19, width: 69 },
+    { icon: "/apps/shopify.png", height: 25, width: 80 },
+    { icon: "/apps/g-calendar.png", height: 22, width: 73 },
+    { icon: "/apps/g-analytics.png", height: 24, width: 101 },
+    { icon: "/apps/instagram.png", height: 24, width: 101 },
+    { title: "Xero", icon: "/apps/xero.png", height: 29, width: 29 },
+  ];
+
   const softwares = () => (
     <div className="flex flex-col items-center justify-center h-full">
       <Card className="shadow-lg border-none h-full w-lg">
@@ -82,50 +92,14 @@ const OnboardingPage = () => {
         </CardHeader>
         <CardContent className="h-full pb-8">
           <div className="grid gap-4 grid-cols-2">
-            <Toggle
-              variant="outline"
-              className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center gap-2 border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
-            >
-              <Laptop className="w-6 h-6" />
-              <p className="text-lg">Shopify</p>
-            </Toggle>
-            <Toggle
-              variant="outline"
-              className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center gap-2 border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
-            >
-              <Laptop className="w-6 h-6" />
-              <p className="text-lg">Google Calendar</p>
-            </Toggle>
-            <Toggle
-              variant="outline"
-              className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center gap-2 border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
-            >
-              <Laptop className="w-6 h-6" />
-              <p className="text-lg">Google Analytics</p>
-            </Toggle>
-            <Toggle
-              variant="outline"
-              className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center gap-2 border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
-            >
-              <Laptop className="w-6 h-6" />
-              <p className="text-lg">Instagram</p>
-            </Toggle>
-            <Toggle
-              variant="outline"
-              className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center gap-2 border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
-            >
-              <Laptop className="w-6 h-6" />
-              <p className="text-lg">Xero</p>
-            </Toggle>
-            <Toggle
-              variant="outline"
-              className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center border-sb-primary hover:bg-sb-primary hover:text-white text-sb-primary"
-            >
-              <div className="h-16 w-full flex flex-row gap-2 items-center justify-center">
-                <Store className="w-20 h-20" />
-                <p className="text-lg">Salesforce</p>
-              </div>
-            </Toggle>
+            {apps.map(({ icon, width }) => (
+              <Toggle
+                variant="outline"
+                className="cursor-pointer p-16 col-span-1 w-full flex flex-row items-center gap-2 border-gray-100 hover:bg-gray-100"
+              >
+                <Image src={icon} alt={icon} width={width} height={30} />
+              </Toggle>
+            ))}
           </div>
         </CardContent>
       </Card>

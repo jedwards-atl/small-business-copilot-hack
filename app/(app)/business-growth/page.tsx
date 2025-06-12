@@ -4,11 +4,10 @@ import {
   Bell,
   Heart,
   Lightbulb,
-  User,
   LucideProps,
   MoreHorizontal,
-  ShoppingCart,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -20,8 +19,8 @@ const tiles = [
       "Hi Kiron, great news about the new warehouse. A new location can change your insurance needs, especially if you're hiring new staff. Let's make sure you're covered.",
     icon: Bell,
     appsUsed: [
-      { title: "Shopify", icon: ShoppingCart },
-      { title: "Xero", icon: User },
+      { title: "Shopify", icon: "/apps/g-calendar.png", height: 22, width: 73 },
+      // { title: "Xero", icon: "/apps/xero.png", height: 29, width: 29 },
     ],
     deepDiveText: "Review Coverage",
   },
@@ -59,9 +58,8 @@ const BusinessGrowthPage = () => {
     description: string;
     appsUsed: {
       title: string;
-      icon: React.ForwardRefExoticComponent<
-        Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
-      >;
+      icon: string;
+      width: number;
     }[];
     icon: React.ForwardRefExoticComponent<
       Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
@@ -88,16 +86,23 @@ const BusinessGrowthPage = () => {
             <p className="text-gray-900">{description}</p>
 
             <div className="flex flex-row gap-6">
-              {appsUsed.map(({ title, icon: Icon }, index) => (
+              {appsUsed.map(({ title, icon, width }, index) => (
                 <div key={`${title}-${index}`}>
                   <p className="text-sm text-gray-600 font-medium mb-3">
                     App Used:
                   </p>
-                  <div className="flex items-center space-x-3">
-                    <Icon className="w-8 h-8 text-azure-400" />
+                  <div className="flex items-center justify-center flex-col space-x-3">
+                    {/* <Icon className="w-8 h-8 text-azure-400" />
                     <span className="text-sm text-gray-900 truncate">
                       {title}
-                    </span>
+                    </span> */}
+                    <Image
+                      src={icon}
+                      alt={title}
+                      width={width}
+                      height={30}
+                      // className="h-8 w-auto"
+                    />
                   </div>
                 </div>
               ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Calendar1 } from "lucide-react";
+import Image from "next/image";
 
 const participants = [
   "/members/brie.png",
@@ -48,10 +49,12 @@ const Upcoming = () => {
         <div>
           <p className="text-sm text-gray-600 font-medium mb-3">App Used:</p>
           <div className="flex items-center space-x-3">
-            <Calendar1 className="w-8 h-8 text-azure-400" />
-            <span className="text-sm text-gray-900 truncate">
-              Google Calendar
-            </span>
+            <Image
+              src="/apps/g-calendar.png"
+              alt="Google Calendar"
+              width={73}
+              height={30}
+            />
           </div>
         </div>
       </div>
