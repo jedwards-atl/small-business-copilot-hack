@@ -5,21 +5,21 @@ import Link from "next/link";
 
 const features = [
   {
-    title: "Make clear decisions, faster",
+    title: "Connect Your World. Get Personalised AI.",
     description:
-      "Get the insights you need to act with confidence. We've designed this tool to help you spend less time guessing and more time growing your business.",
+      "Link your daily apps like Xero & Shopify to one AI co-pilot. Get insights driven purely by your business data, not generic advice.",
     icon: Heart,
   },
   {
-    title: "Get tailored business insights",
+    title: "Simplify Your Day. Grow Your Dreams.",
     description:
-      "Our AI understand your business instantly. Skip the complex prompts and get the answers you need to move forward - from finding the right insurance to making confident business decisions.",
+      "Cut through the app clutter. SimplyPilot puts all your business data in one simple place. Designed for non-tech users, it saves hours, letting you focus on real growth.",
     icon: TrendingUp,
   },
   {
-    title: "Connects with your tools",
+    title: "Trusted Insights. Securely Yours.",
     description:
-      "We'll link with the platforms you already use. This gives you insights and answers based on your own business data, not generic examples.",
+      "We protect your sensitive business data. Get trusted AI insights, reinforced by the Simply Business brand.",
     icon: Users,
   },
 ];
@@ -33,10 +33,10 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                The AI Copilot For Your Small Business
+                Finally, AI that knows<br />your business
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Get Tailored Insights, No Prompts Needed
+                Generic AI Answers? Not here. Get intelligent advice that<br />drives your business. <br />
               </p>
             </div>
             <Link href="/chat">
@@ -45,7 +45,7 @@ export default function Home() {
                 className="bg-sb-primary hover:bg-azure-600 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl cursor-pointer"
               >
                 <div className="flex flex-row  gap-2 items-center justify-center">
-                  Get Started
+                  Start Your Free Trial
                   <ArrowRight />
                 </div>
               </Button>
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-sm:px-4">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-azure-400 rounded-full blur-3xl opacity-30 scale-150 overflow-x-hidden"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-azure-400 rounded-full blur-3xl opacity-30 scale-100 overflow-x-hidden"></div>
             <div className="relative bg-gray-800 rounded-lg p-8 shadow-2xl">
               <div className="bg-white rounded-lg p-6 mb-4">
                 <div className="flex items-center space-x-3 mb-4">
