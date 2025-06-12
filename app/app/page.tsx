@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import Navbar from "../components/Navbar";
@@ -21,7 +21,7 @@ const ChatsPage = () => {
       <div className="flex-1 flex flex-col">
         {/* Navbar */}
         <Navbar />
-        
+
         {/* Chat area */}
         <div className="flex-1 overflow-hidden">
           <ChatAreaOG notification={notification} />

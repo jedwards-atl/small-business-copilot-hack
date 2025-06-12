@@ -1,12 +1,13 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mic, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import ChatArea from "@/components/chat/chatArea";
-import { useChat, type Message } from '@ai-sdk/react'; // Ensure Message type is imported
+import { useChat, type Message } from "@ai-sdk/react"; // Ensure Message type is imported
+import { useSearchParams } from "next/navigation";
 
 const suggestions = [
   "Create a marketing plan",
@@ -17,10 +18,14 @@ const suggestions = [
 ];
 
 const ChatPage = () => {
-  const [chatSubmitted, setChatSubmitted] = React.useState(false);
+  const searchParams = useSearchParams();
+  const notification = searchParams.get("notification");
+
+  const [chatSubmitted, setChatSubmitted] = useState(false);
   const chatBoxRef = useRef<HTMLDivElement>(null);
   // Add `append` to the destructured props from useChat
-  const { messages, input, handleInputChange, handleSubmit, setInput, append } = useChat({ api: '/api/chat' });
+  const { messages, input, handleInputChange, handleSubmit, setInput, append } =
+    useChat({ api: "/api/chat" });
 
   const submitChat = (event?: React.FormEvent<HTMLFormElement>) => {
     if (event) {
@@ -37,7 +42,7 @@ const ChatPage = () => {
     // Create the message object for the user's suggestion
     const userMessage: Message = {
       id: crypto.randomUUID(), // Generate a unique ID for the message
-      role: 'user',
+      role: "user",
       content: suggestion,
     };
 
@@ -48,13 +53,17 @@ const ChatPage = () => {
 
     // After the message is appended and the process starts,
     // clear the input field, similar to how handleSubmit behaves.
-    setInput('');
+    setInput("");
   };
 
   // Effect to handle clicks outside the chat box
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (chatBoxRef.current && !chatBoxRef.current.contains(event.target as Node) && chatSubmitted) {
+      if (
+        chatBoxRef.current &&
+        !chatBoxRef.current.contains(event.target as Node) &&
+        chatSubmitted
+      ) {
         const targetElement = event.target as HTMLElement;
 
         if (targetElement.closest('button[data-suggestion-button="true"]')) {
@@ -70,6 +79,28 @@ const ChatPage = () => {
     };
   }, [chatSubmitted]);
 
+  useEffect(() => {
+    console.log(notification);
+    if (notification) {
+      // Create a synthetic event to set the input
+      // const event = {
+      //   target: {
+      //     value:
+      //       "I have a new warehouse, and I'm also going to be hiring my first employee, can you check my insurance coverage is still appropriate?",
+      //   },
+      // } as React.ChangeEvent<HTMLInputElement>;
+
+      // handleInputChange(event);
+      // // Click the submit button to trigger form submission
+      // setTimeout(() => {
+      //   submitButtonRef.current?.click();
+      // }, 0);
+      handleSuggestionClick(
+        "I have a new warehouse, and I'm also going to be hiring my first employee, can you check my insurance coverage is still appropriate?"
+      );
+    }
+  }, [notification]);
+
   return (
     <div className="items-center justify-center flex flex-col w-full h-full">
       {/* Header */}
@@ -82,7 +113,9 @@ const ChatPage = () => {
             width={77}
             height={77}
           />
-          <h1 className="text-4xl font-semibold text-sb-primary">SimplyPilot</h1>
+          <h1 className="text-4xl font-semibold text-sb-primary">
+            SimplyPilot
+          </h1>
         </div>
       )}
 
@@ -104,16 +137,16 @@ const ChatPage = () => {
         <div
           ref={chatBoxRef} // Assign the ref to the container
           className={`relative transition-all duration-500 ease-in-out ${
-            chatSubmitted 
-              ? "w-full h-4/5 mt-8 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm"  // Changed w-5/5 to w-full for clarity
-              : "w-2/5" 
+            chatSubmitted
+              ? "w-full h-4/5 mt-8 flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm" // Changed w-5/5 to w-full for clarity
+              : "w-2/5"
           }`}
         >
           {/* Chat Area: Rendered first when chat is submitted for flex order, takes available space */}
           {chatSubmitted && (
-            <div className="flex-grow p-4 overflow-y-auto rounded-t-lg"> 
+            <div className="flex-grow p-4 overflow-y-auto rounded-t-lg">
               {/* Removed handleSubmit prop as ChatArea does not use it */}
-              <ChatArea messages={messages} handleSubmit={handleSubmit} /> 
+              <ChatArea messages={messages} handleSubmit={handleSubmit} />
             </div>
           )}
 
@@ -137,7 +170,7 @@ const ChatPage = () => {
               <Input
                 placeholder="Ask anything"
                 className="border-0 shadow-none focus-visible:ring-0 text-base flex-grow"
-                value={input} 
+                value={input}
                 onChange={handleInputChange}
               />
               <div className="flex items-center gap-1">
@@ -145,7 +178,7 @@ const ChatPage = () => {
                   variant="ghost"
                   size="sm"
                   className="cursor-pointer h-8 w-8 p-0 text-sb-primary hover:bg-background-highlight"
-                  type="button" 
+                  type="button"
                 >
                   <Mic className="h-4 w-4" />
                 </Button>
@@ -153,14 +186,14 @@ const ChatPage = () => {
                   variant="ghost"
                   size="sm"
                   className="cursor-pointer h-8 w-8 p-0 bg-sb-primary hover:bg-azure-600 text-white hover:text-white"
-                  type="submit" 
+                  type="submit"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </form>
           </div>
-          
+
           {/* The old ChatArea container is removed as it's now part of the flex layout above */}
         </div>
 
