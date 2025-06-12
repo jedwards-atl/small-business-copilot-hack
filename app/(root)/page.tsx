@@ -17,9 +17,9 @@ const features = [
     icon: TrendingUp,
   },
   {
-    title: "Trusted Insights. Securely Yours.",
+    title: "Trusted Insights. Every step of the way.",
     description:
-      "We protect your sensitive business data. Get trusted AI insights, reinforced by the Simply Business brand.",
+      "We help you navigate the risks of scaling your business. At every growth stage of your journey, we'll steer you in the right direction.",
     icon: Users,
   },
 ];
@@ -33,10 +33,10 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Finally, AI that knows<br />your business
+                Finally, AI that knows<br /><em>your</em> business
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Generic AI Answers? Not here. Get intelligent advice that<br />drives your business. <br />
+              An AI Assistant that leverages <strong>unique business data</strong> to help<br />the small business owner scale and mitigate risk throughout<br />every growth stage of their business.
               </p>
             </div>
             <Link href="/chat">
