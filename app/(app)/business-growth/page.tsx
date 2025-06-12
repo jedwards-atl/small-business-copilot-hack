@@ -87,7 +87,7 @@ const BusinessGrowthPage = () => {
 
             <div className="flex flex-row gap-6">
               {appsUsed.map(({ title, icon: Icon }, index) => (
-                <div>
+                <div key={`${title}-${index}`}>
                   <p className="text-sm text-gray-600 font-medium mb-3">
                     App Used:
                   </p>
@@ -119,7 +119,7 @@ const BusinessGrowthPage = () => {
         </h1>
         <p className="text-gray-900">
           Business growth means more to manage. SimplyPilot helps you handle the
-          complexity, so you can focus on what's next.
+          complexity, so you can focus on what&apos;s next.
         </p>
       </div>
 
