@@ -73,7 +73,7 @@ const Sidebar = () => {
         </h3>
       </div>
 
-      <div className="flex flex-col h-full justify-between pb-10">
+      <div className="flex flex-col h-full max-lg:justify-between xl:gap-16 pb-10">
         <div className="flex flex-col gap-4">
           {/* New Chat */}
           <div className="">
