@@ -103,8 +103,8 @@ const BusinessGrowthPage = () => {
               ))}
             </div>
 
-            <Link 
-              href="/app?notification=insurance_coverage_change"
+            <Link
+              href="/chat?notification=insurance_coverage_change"
               className="text-sb-primary font-normal border-b-1 border-sb-primary w-fit cursor-pointer hover:font-medium"
             >
               {deepDiveText}
