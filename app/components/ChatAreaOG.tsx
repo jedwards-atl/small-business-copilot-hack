@@ -7,7 +7,7 @@ import Markdown from 'react-markdown'
 
 import '../styles/chat.css'
 
-const ChatArea = ({ notification }: { notification: string }) => {
+const ChatAreaOG = ({ notification }: { notification: string }) => {
   const {messages, input, handleInputChange, handleSubmit } = useChat({api: '/api/chat'});
   const formRef = React.useRef<HTMLFormElement>(null);
   const submitButtonRef = React.useRef<HTMLButtonElement>(null);
@@ -96,4 +96,4 @@ const ChatArea = ({ notification }: { notification: string }) => {
   );
 };
 
-export default ChatArea; 
+export default ChatAreaOG; 

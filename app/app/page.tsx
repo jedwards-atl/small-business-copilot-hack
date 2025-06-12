@@ -3,8 +3,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import ChatArea from "../components/ChatArea";
 import { useSearchParams } from "next/navigation";
+import ChatAreaOG from "../components/ChatAreaOG";
 
 const ChatsPage = () => {
   const searchParams = useSearchParams();
@@ -24,7 +24,7 @@ const ChatsPage = () => {
         
         {/* Chat area */}
         <div className="flex-1 overflow-hidden">
-          <ChatArea notification={notification} />
+          <ChatAreaOG notification={notification} />
         </div>
       </div>
     </div>
