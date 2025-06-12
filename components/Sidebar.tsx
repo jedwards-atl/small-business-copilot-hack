@@ -59,13 +59,15 @@ const Sidebar = () => {
     <div className="bg-white w-80 border-r border-gray-200 flex flex-col p-4 h-full">
       {/* Header */}
       <div className="flex flex-row items-center gap-2 mb-6">
-        <Image
-          src="/ai-orb.png"
-          className="relative z-10 bg-transparent"
-          alt="orb"
-          width={40}
-          height={40}
-        />
+        <Link href="/">
+          <Image
+            src="/ai-orb.png"
+            className="relative z-10 bg-transparent"
+            alt="orb"
+            width={40}
+            height={40}
+          />
+        </Link>
         <h3 className="text-sm font-medium text-sb-primary tracking-wide">
           Ash & Co. AI Assistant
         </h3>
