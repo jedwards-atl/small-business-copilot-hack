@@ -76,7 +76,7 @@ const Sidebar = () => {
           {/* New Chat */}
           <div className="">
             <Link href="/chat">
-              <Button className="w-full bg-sb-primary hover:bg-azure-400 text-white cursor-pointer">
+              <Button className="w-full bg-sb-primary hover:bg-sb-primary-hover text-white cursor-pointer">
                 New Chat
               </Button>
             </Link>
