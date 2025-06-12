@@ -3,7 +3,7 @@
 import { Bell } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback } from "./ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Card } from "./ui/card";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowNotification(true);
-    }, 5000); // 60000ms = 1 minute
+    }, 30000); // 30000ms = 30 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -65,8 +65,7 @@ const Header = () => {
         </Popover>
 
         <Avatar className="h-8 w-8 cursor-pointer">
-          <AvatarImage src="/members/ash.png" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback className="text-sb-primary">CW</AvatarFallback>
         </Avatar>
       </div>
     </div>

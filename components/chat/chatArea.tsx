@@ -76,7 +76,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit, chatSubmitt
                     </div>
                   {message.role === 'user' && (
                       <div className="w-8 h-8 rounded-full bg-sb-primary text-white flex items-center justify-center">
-                        <span className="text-sm font-medium">AP</span>
+                        <span className="text-sm font-medium">CW</span>
                       </div>
                   )}
                 </div>

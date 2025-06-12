@@ -122,7 +122,7 @@ export async function POST(request: Request) {
 
         }),
         execute: async ({ trade, employee_payroll, state, insurance_product }) => {
-          return `The price for ${insurance_product} is ${randomNumFromInterval(40,100)} per month`
+          return `The price for ${insurance_product} is ${randomNumFromInterval(20,40)} per month`
         },
       }),
       task_scheduler: tool({
@@ -160,7 +160,7 @@ export async function POST(request: Request) {
           "Get information about the business including name, location, website URL",
         parameters: z.object({}),
         execute: async () => {
-          return `The business is called Peacock Productions run by Ashley Peacock and they sell clothing online. They are based in the United States. Their website URL is https://www.simplybusiness.com.`;
+          return `The business is called Runr run by Craig Winter and they sell running shoes online. They are based in the United States. Their website URL is https://therunningchannel.com.`;
         },
       }),
     };
@@ -176,12 +176,13 @@ export async function POST(request: Request) {
       model: bedrock("anthropic.claude-3-5-sonnet-20240620-v1:0"),
       system:
         "You are an assistant designed to help small business owners run their business in the United States. " + 
-        "Their business is called Peacock Productions run by Ashley Peacock and they sell clothing online. " + 
+        "Their business is called Runr run by Craig Winter and they sell running shoes online. " + 
         "Include this information in the responses to make them more personalised where appropriate." +
         "You will be given the chat history and the latest message. You have access to tools that can help you answer questions about Apple, Xero and Shopify, " + 
-        "use them when necessary. Today's date is 12th June 2025. You need to format your response in an easy to read way with paragraphs, headings, " + 
+        "use them when necessary. If you use a tool, bold the text when talking about tool usage. " + 
+        "Today's date is 12th June 2025. You need to format your response in an easy to read way with paragraphs, headings, " + 
         "lists, etc. ALWAYS format the response with Markdown." + 
-        "Keep your responses concise and to the point. Format your response so the relevant data is passed to the user in the least amount of words" +
+        "Keep your responses concise and to the point. Format your response so the relevant data is passed to the user in the LEAST AMOUNT OF WORDS POSSIBLE." +
         "Limit your response when asked about coverage/insurance to Business Owners Policy (BOP) and Workers compensation ", //This is a hack
       tools: tools,
       messages: messages,
