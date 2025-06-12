@@ -22,6 +22,7 @@ const ChatPage = () => {
   const notification = searchParams.get("notification");
 
   const [chatSubmitted, setChatSubmitted] = useState(false);
+  const [isThinking, setIsThinking] = useState(false);
   const chatBoxRef = useRef<HTMLDivElement>(null);
   // Add `append` to the destructured props from useChat
   const { messages, input, handleInputChange, handleSubmit, setInput, append } =
@@ -32,6 +33,7 @@ const ChatPage = () => {
       event.preventDefault();
     }
 
+    setIsThinking(true);
     setChatSubmitted(true);
     handleSubmit(event);
   };
@@ -82,24 +84,22 @@ const ChatPage = () => {
   useEffect(() => {
     console.log(notification);
     if (notification) {
-      // Create a synthetic event to set the input
-      // const event = {
-      //   target: {
-      //     value:
-      //       "I have a new warehouse, and I'm also going to be hiring my first employee, can you check my insurance coverage is still appropriate?",
-      //   },
-      // } as React.ChangeEvent<HTMLInputElement>;
-
-      // handleInputChange(event);
-      // // Click the submit button to trigger form submission
-      // setTimeout(() => {
-      //   submitButtonRef.current?.click();
-      // }, 0);
       handleSuggestionClick(
         "I have a new warehouse, and I'm also going to be hiring my first employee, can you check my insurance coverage is still appropriate?"
       );
     }
   }, [notification]);
+
+  useEffect(() => {
+    if (
+      messages.length > 0 &&
+      messages[messages.length - 1].role === "assistant"
+    ) {
+      setIsThinking(false);
+    }
+
+    console.log(messages);
+  }, [messages]);
 
   return (
     <div className="items-center justify-center flex flex-col w-full h-full">
@@ -146,6 +146,12 @@ const ChatPage = () => {
           {chatSubmitted && (
             <div className="flex-grow p-4 overflow-y-auto rounded-t-lg">
               <ChatArea messages={messages} handleSubmit={handleSubmit} chatSubmitted={chatSubmitted} />
+            </div>
+          )}
+
+          {isThinking && (
+            <div className="flex p-4">
+              <p>Chat AI is thinking...</p>
             </div>
           )}
 
