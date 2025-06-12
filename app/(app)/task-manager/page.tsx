@@ -9,7 +9,7 @@ import React from "react";
 
 const tiles = [
   {
-    title: "Ranked by Impact",
+    title: "Tasks Completed",
     component: RankedByImpact,
     columns: 3,
   },
