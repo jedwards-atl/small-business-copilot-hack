@@ -18,29 +18,22 @@ const suggestions = [
 
 const ChatPage = () => {
   const [chatSubmitted, setChatSubmitted] = React.useState(false);
-  // inputValue and setInputValue are now managed by useChat hook as 'input' and 'handleInputChange'
   const chatBoxRef = useRef<HTMLDivElement>(null);
   const { messages, input, handleInputChange, handleSubmit, setInput } = useChat({ api: '/api/chat' });
 
   const submitChat = (event?: React.FormEvent<HTMLFormElement>) => {
     if (event) {
-      event.preventDefault(); // Prevent default form submission if called from form
+      event.preventDefault();
     }
-    // console.log("Chat submitted with:", input); // 'input' from useChat has the current value
-    if (input.trim()) {
-      // No need to setInputValue here, handleSubmit from useChat will handle it
-    }
+
     setChatSubmitted(true);
-    handleSubmit(event); // Pass event if available
+    handleSubmit(event);
   };
 
   const handleSuggestionClick = (suggestion: string) => {
-    setInput(suggestion); // Use setInput from useChat to update the input field
-    // Optionally, submit directly after setting input from suggestion
-    // To do this, we need to ensure handleSubmit is called with the updated input
-    // We can create a new form event or call handleSubmit directly if it handles the current 'input' state
+    setInput(suggestion); 
     setChatSubmitted(true);
-    handleSubmit(); // This will use the 'input' value set by setInput
+    handleSubmit();
   };
 
   // Effect to handle clicks outside the chat box
