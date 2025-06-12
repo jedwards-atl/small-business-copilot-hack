@@ -145,8 +145,7 @@ const ChatPage = () => {
           {/* Chat Area: Rendered first when chat is submitted for flex order, takes available space */}
           {chatSubmitted && (
             <div className="flex-grow p-4 overflow-y-auto rounded-t-lg">
-              {/* Removed handleSubmit prop as ChatArea does not use it */}
-              <ChatArea messages={messages} handleSubmit={handleSubmit} />
+              <ChatArea messages={messages} handleSubmit={handleSubmit} chatSubmitted={chatSubmitted} />
             </div>
           )}
 
