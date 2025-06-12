@@ -205,7 +205,7 @@ const ChatPage = () => {
 
         {/* Suggestions */}
         {!chatSubmitted && (
-          <div className="flex flex-wrap gap-4 justify-center w-3/5">
+          <div className="flex flex-wrap gap-4 justify-center w-3/5 xl:w-2/5">
             {suggestions.map((suggestion, index) => (
               <Button
                 key={index}
