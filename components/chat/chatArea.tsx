@@ -1,15 +1,25 @@
 'use client';
 
-import React from 'react';
-import Markdown from 'react-markdown'
-import { type Message } from '@ai-sdk/react'; // Import Message type
+import React, { useEffect, useRef } from 'react'; // Import useEffect and useRef
+import Markdown from 'react-markdown';
+import { type Message } from '@ai-sdk/react';
 
 interface ChatAreaProps {
     messages: Message[];
-    handleSubmit: (event?: React.FormEvent<HTMLFormElement>) => void;
+    handleSubmit: (event?: React.FormEvent<HTMLFormElement>) => void; // Assuming this is still needed for a form wrapper
 }
 
 const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
+  const messagesEndRef = useRef<HTMLDivElement>(null); // Ref for the scrollable container
+  const scrollableContainerRef = useRef<HTMLDivElement>(null); // Ref for the scrollable container
+
+  useEffect(() => {
+    // Scroll to the bottom every time messages update
+    if (scrollableContainerRef.current) {
+      scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight;
+    }
+  }, [messages]); // Dependency array ensures this runs when messages change
+
   if (!messages || messages.length === 0) {
     return (
       <div className="flex items-center justify-center h-full">
@@ -20,12 +30,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
 
   return (
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit} // If this form is not actually submitting from here, consider removing it
         className="h-full flex flex-col"
       >
         <div className="flex-1 min-h-0 flex flex-col">
           {/* Messages area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-6">
+          <div 
+            ref={scrollableContainerRef} // Assign ref to the scrollable div
+            className="flex-1 overflow-y-auto p-4 space-y-6"
+          >
             {messages.map((message) => (
                 <div
                     key={message.id}
@@ -40,7 +53,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
                   )}
                     <div className={`flex-1 ${message.role === 'user' ? 'flex justify-end' : 'flex justify-start'}`}>
                     <div
-                      className={`rounded-lg p-4 w-3/5 shadow-sm message ${
+                      className={`rounded-lg p-4 w-4/5 shadow-sm message ${
                         message.role === 'user'
                           ? 'bg-sb-primary text-white'
                           : 'bg-white text-gray-800'
@@ -56,6 +69,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, handleSubmit }) => {
                   )}
                 </div>
             ))}
+            {/* Optional: An empty div at the end to help ensure smooth scrolling to the very bottom */}
+            {/* <div ref={messagesEndRef} /> */}
           </div>
         </div>
       </form>
