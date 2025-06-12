@@ -12,7 +12,7 @@ import {
 
 const chartData = [
   { month: "Monday", low: 5, high: 6 },
-  { month: "Tuesday", low: 3, high: 8 },
+  { month: "Tuesday", low: 3, high: 5 },
   { month: "Wednesday", low: 4, high: 2 },
   { month: "Thursday", low: 2, high: 1 },
   { month: "Friday", low: 2, high: 4 },
@@ -31,7 +31,7 @@ const chartConfig = {
 
 export function Chart() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer config={chartConfig} className="flex h-1/2 w-full">
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis

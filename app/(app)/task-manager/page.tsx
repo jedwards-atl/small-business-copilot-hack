@@ -1,3 +1,4 @@
+import { Chart } from "@/components/Chart";
 import ContributingMembers from "@/components/task-manager-card-content/ContributingMembers";
 import RankedByImpact from "@/components/task-manager-card-content/RankedByImpact";
 import TaskNotifications from "@/components/task-manager-card-content/TaskNotifications";
@@ -10,7 +11,7 @@ import React from "react";
 const tiles = [
   {
     title: "Tasks Completed",
-    component: RankedByImpact,
+    component: Chart,
     columns: 3,
   },
   {
@@ -47,7 +48,7 @@ const TaskManagerPage = () => {
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </CardHeader>
-      <CardContent className="h-full">
+      <CardContent className="flex flex-col">
         <Component />
       </CardContent>
     </Card>
@@ -62,7 +63,7 @@ const TaskManagerPage = () => {
 
       {/* Tasks Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 grid-flow-row">
-        <div className="col-span-1 lg:col-span-3">{tile(tiles[0])}</div>
+        <div className="col-span-1 lg:col-span-3 h-85">{tile(tiles[0])}</div>
         <div className="col-span-1 lg:col-span-2">{tile(tiles[1])}</div>
         <div className="col-span-1 lg:col-span-2">{tile(tiles[2])}</div>
         <div className="col-span-1 lg:col-span-3">{tile(tiles[3])}</div>
