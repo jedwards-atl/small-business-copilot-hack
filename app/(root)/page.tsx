@@ -33,13 +33,20 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Finally, AI that knows<br /><em>your</em> business
+                Finally, AI that knows
+                <br />
+                <em>your</em> business
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-              An AI Assistant that leverages <strong>unique business data</strong> to help<br />the small business owner scale and mitigate risk throughout<br />every growth stage of their business.
+                An AI Assistant that leverages{" "}
+                <strong>unique business data</strong> to help
+                <br />
+                the small business owner scale and mitigate risk throughout
+                <br />
+                every growth stage of their business.
               </p>
             </div>
-            <Link href="/chat">
+            <Link href="/onboarding">
               <Button
                 size="lg"
                 className="bg-sb-primary hover:bg-azure-600 text-white max-sm:px-6 max-sm:py-6 px-8 py-8 max-sm:text-lg text-xl cursor-pointer"
